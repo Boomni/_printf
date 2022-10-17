@@ -16,21 +16,17 @@ int _printf(const char *format, ...){
 		if (*i == '%'){ /* if there is a percent, go through all the checks with the next character */
 			i++;
 			
-			if (*i == 'd'){ /* prints an integer */
+			if (*i == 'i' || *i == 'd'){ /* prints an integer */
 				x = va_arg(args,int);
-				print_integer(x,10,"");
-			}
-			if (*i == 'i'){ /* prints an integer */
-				x = va_arg(args,int);
-				print_integer(x,10,"");
+				print_integer(x,10);
 			}
 			else if (*i == 'x'){ /* prints an integer in hexadecimal format */
 				x = va_arg(args,int);
-				print_integer(x,16,"0x");
+				print_integer(x,16);
 			}
 			else if (*i == 'b'){ /* prints an integer in binary */
 				x = va_arg(args,int);
-				print_integer(x,2,"0b");
+				print_integer(x,2);
 			}
 			else if (*i == 's'){ /* prints a string by going through the loop of characters */
 				s = va_arg(args,char *);

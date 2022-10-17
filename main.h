@@ -8,6 +8,6 @@
 
 
 int _printf(const char *format, ...);
-void print_integer(int n, int radix, char* prefix);
+void print_integer(int n, int radix);
 
 #endif

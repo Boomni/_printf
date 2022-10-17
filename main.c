@@ -11,6 +11,8 @@ int main(void)
     int len2;
     unsigned int ui;
     void *addr;
+    char a1, *b;
+    int number;
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -38,6 +40,26 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+
+
+	number = 19912507;
+
+
+	_printf("%i\n%i, %d,%i", number, 30, 60, 40);
+
+	_printf("%s\n", "Holberton\nSchool");
+
+	a1 = 'H';
+	b = "hello";
+
+	_printf("%c, %s\n", a1, b);
+
+	_printf("%x\n", 45);
+	printf("%x\n", 45);
+	_printf("%x\n", 4512);
+	printf("%x\n", 4512);
+
+	return (0);
     return (0);
 }
 

@@ -1,7 +1,7 @@
 /* vim: set tabstop=4 shiftwidth=4 fileencoding=utf-8 noexpandtab: */
 #include "main.h"
    
-void print_integer(int n, int radix, char* prefix){
+void print_integer(int n, int radix){
     int output_reversed[32] = { 0 }; /* chose 32 length bc longest int */
     int rem = 0;
     int i = 0;
@@ -9,21 +9,18 @@ void print_integer(int n, int radix, char* prefix){
 	unsigned int n_abs;
 	
 	/* gets the absolute value of n if n is negative */
-    if (n < 0){
+	if (n < 0)
+	{
 		n_abs = n * -1;
-        fputc('-',stdout); /* print out the negative sign to the screen before anything else */
-    }
-	else{
+		putchar('-'); /* print out the negative sign to the screen before anything else */
+	}
+	else
+	{
 		n_abs = n;
 	}
 	
-	/* print out prefix one character at a time */
-	while (*prefix !='\0'){
-		fputc(*prefix,stdout);
-		prefix++;
-	}
 	if (n_abs==0){
-		fputc('0',stdout);
+		putchar('0');
 	}
 	
 	/* take the mod, add that to the array of digits, and then divide n by the base */
@@ -38,11 +35,11 @@ void print_integer(int n, int radix, char* prefix){
     i = i-1;
     while (i >= 0){
         if (output_reversed[i] > 9){
-            fputc(output_reversed[i] - 10 + 'a',stdout); /* convert int greater than 9 to ascii letters */
+            putchar(output_reversed[i] - 10 + 'a'); /* convert int greater than 9 to ascii letters */
         }
         else{
             ch = output_reversed[i] + '0'; /* convert int to character */
-            fputc(ch,stdout); 
+            putchar(ch); 
         }
         i--;
     }
